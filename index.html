@@ -6,91 +6,8 @@
   <title>Machine or Me</title>
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    body {
-      background-color: #f8f9fa; /* Light background */
-      font-family: 'Arial', sans-serif;
-    }
-    .container {
-      max-width: 500px;
-      margin: 50px auto;
-      background: white;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-      animation: fadeIn 1s ease-in-out;
-    }
-    h1 {
-      color: #343a40;
-      text-align: center;
-      margin-bottom: 20px;
-      animation: slideDown 1s ease-in-out;
-    }
-    #result {
-      text-align: center;
-      font-weight: bold;
-      margin-top: 15px;
-      color: #6c757d;
-      transition: color 0.3s, transform 0.3s;
-    }
-    #score {
-      text-align: center;
-      font-weight: bold;
-      margin-bottom: 20px;
-      color: #007bff;
-      animation: popIn 0.5s ease-in-out;
-    }
-    button {
-      width: 100%;
-    }
-    .shake {
-      animation: shake 0.5s ease-in-out;
-    }
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: scale(0.9);
-      }
-      to {
-        opacity: 1;
-        transform: scale(1);
-      }
-    }
-    @keyframes slideDown {
-      from {
-        transform: translateY(-50px);
-        opacity: 0;
-      }
-      to {
-        transform: translateY(0);
-        opacity: 1;
-      }
-    }
-    @keyframes popIn {
-      from {
-        transform: scale(0.8);
-        opacity: 0;
-      }
-      to {
-        transform: scale(1);
-        opacity: 1;
-      }
-    }
-    @keyframes shake {
-      0%, 100% {
-        transform: translateX(0);
-      }
-      25% {
-        transform: translateX(-5px);
-      }
-      50% {
-        transform: translateX(5px);
-      }
-      75% {
-        transform: translateX(-5px);
-      }
-    }
-  </style>
+  <!-- Link to external CSS -->
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
@@ -104,46 +21,8 @@
   <p id="score">I'll give you 10 lives</p>
 </div>
 
-<script>
-  // Selecting the guessnumber and result
-  var guessnumber = document.getElementById("guessnumber");
-  var result = document.getElementById("result");
-  var randomNumber = Math.floor(Math.random() * 10) + 1;
-  var score = document.getElementById("score");
-  var fullScore = 10;
-
-  function check() {
-    var enterednumber = Number(guessnumber.value); // Convert input to number
-
-    if (randomNumber === enterednumber) {
-      result.textContent = "GOAT! You guessed it right!";
-      result.style.color = "green";
-      result.style.transform = "scale(1.2)";
-      setTimeout(() => {
-        result.style.transform = "scale(1)";
-      }, 300);
-      alert("Finally Me");
-    } else {
-      fullScore = fullScore - 1;
-
-      if (fullScore > 0) {
-        score.textContent = "Your Score is " + fullScore;
-        result.textContent = "COAT! Try again!";
-        result.style.color = "red";
-
-        // Add a shake effect
-        result.classList.add("shake");
-        setTimeout(() => {
-          result.classList.remove("shake");
-        }, 500);
-      } else {
-        result.textContent = "GAME OVER! The number was " + randomNumber;
-        result.style.color = "black";
-        guessnumber.disabled = true;
-      }
-    }
-  }
-</script>
+<!-- Link to external JavaScript -->
+<script src="script.js"></script>
 
 </body>
 </html>
